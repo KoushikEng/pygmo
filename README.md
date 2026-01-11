@@ -4,7 +4,7 @@ A minimal Docker image for [pygmo](https://esa.github.io/pygmo2/), built on top 
 
 ## Features
 
-- Based on Miniconda (from ghcr.io/koushikeng/miniconda)
+- Based on Miniconda (from [ghcr.io/koushikeng/miniconda](https://ghcr.io/koushikeng/miniconda))
 - Python 3.12
 - pygmo 2.19.7
 - pygmo installed from conda-forge
