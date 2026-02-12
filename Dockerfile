@@ -1,17 +1,10 @@
-FROM ghcr.io/koushikeng/miniconda:latest
+FROM mambaorg/micromamba
 
-# Set environment variable to auto-accept conda plugin terms of service
-ENV CONDA_PLUGINS_AUTO_ACCEPT_TOS=yes
+WORKDIR /app
 
-# Install Python 3.12 using conda for pygmo compatibility
-RUN conda install python=3.12
+RUN micromamba install --yes -c conda-forge --channel-priority strict pygmo \
+    && micromamba clean --all --yes
 
-# Configure conda to use conda-forge channel with strict priority
-RUN conda config --add channels conda-forge
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
 
-# Set channel priority to strict
-RUN conda config --set channel_priority strict
-
-# Install pygmo
-RUN conda install pygmo
-
+ENTRYPOINT ["/bin/bash"]
